@@ -1,0 +1,9 @@
+<template>
+    <lightning-card  title="Contact Record">
+        <template for:each={ConList} for:item="con">
+            <div key={con.id}>
+                {con.FirstName}
+            </div>
+        </template>
+    </lightning-card>
+</template>
