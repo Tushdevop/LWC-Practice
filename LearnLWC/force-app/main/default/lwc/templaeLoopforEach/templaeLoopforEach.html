@@ -1,0 +1,9 @@
+<template>
+    <lightning-card title="Template Looping" icon-name="custom:custom14">
+        <ul class="slds-m-around_medium">
+            <template for:each={carList} for:item="car">
+                    <a href="#" key={car}>{car}</a>
+            </template>
+        </ul>   
+    </lightning-card>
+</template>

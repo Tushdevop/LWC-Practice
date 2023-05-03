@@ -1,0 +1,17 @@
+<template>
+    <lightning-card  title="Lightning Data Binding">
+        <lightning-button label="New" slot="actions"></lightning-button>
+        <p class="slds-p-horizontal_small">
+            My Component is fetching this data from JS- {dataElement}</p>
+         <p slot="footer">Card Footer</p>
+    </lightning-card>
+
+    <lightning-card title="Two Way Data Binding">
+        <p class="slds-m-around_xx-small">
+        <lightning-input type="Text" name="name" label="Enter your name" value={name} onkeyup={chnageHandler}></lightning-input>
+          </p><br/>
+          <p>
+            Hello {name}, you have successfully implemented data binding.
+          </p>
+    </lightning-card>
+</template>
