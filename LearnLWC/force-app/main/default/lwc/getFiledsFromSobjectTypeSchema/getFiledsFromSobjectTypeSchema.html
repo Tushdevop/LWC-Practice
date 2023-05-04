@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="Get Single Contact By SObjectType">
+        <template if:true={contact.data}>
+            <div class="slds-m-around_medium">
+                <p>{Name} </p>
+                <p>{title} </p>
+                <p><lightning-formatted-email value={email}></lightning-formatted-email></p>
+            </div>
+        </template>
+    </lightning-card>
+</template>

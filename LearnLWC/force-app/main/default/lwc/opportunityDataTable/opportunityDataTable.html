@@ -1,0 +1,55 @@
+<template>
+    <lightning-card tilte="Opportunities List">
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered" aria-label="Example table of Opportunities with vertical borders">
+            <thead>
+              <tr class="slds-line-height_reset">
+                <th class="" scope="col">
+                  <div class="slds-truncate" title="Opportunity Name">Opportunity Name</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Account Id">Account Id</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Account Name">Account Name</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Stage Name">Stage Name</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Amount">Amount</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Close Date">Close Date</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={oppList} for:item="opp">
+            <tr class="slds-hint-parent" key={opp.id}>
+                <th data-label="Opportunity Name" scope="row">
+                    <div class="slds-truncate" title="Opportunity Name">
+                        <div class="slds-truncate" title="Opportunity Name">{opp.Name}</div>
+                    </div>
+                  </th>
+                <td data-label="Account Id">
+                    <div class="slds-truncate" title="Account Id">
+                        <a href="#">{opp.Account.Id}</a></div>
+                  </td>
+                <td data-label="Account Name">
+                  <div class="slds-truncate" title="Account Name">{opp.Account.Name}</div>
+                </td>
+                <td data-label="Stage Name">
+                    <div class="slds-truncate" title="Stage Name">{opp.StageName}</div>
+                  </td>
+                  <td data-label="Amount">
+                    <div class="slds-truncate" title="Amount">{opp.Amount}</div>
+                  </td>
+                <td data-label="Close Date">
+                  <div class="slds-truncate" title="Close Date">{opp.CloseDate}</div>
+                </td>
+            </tr>
+        </template>
+        </tbody>
+      </table>
+</lightning-card>
+</template>
