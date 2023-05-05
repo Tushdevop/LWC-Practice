@@ -1,16 +1,36 @@
 <template>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_4-of-12">
     <lightning-card title="Binding" icon-name="custom:custom25">
          <div class="slds-p-around_medium lgc-bg">
                 <lightning-input type="text" label="Enter some text" 
                                  value={inputText}
-                                 onchange={handleChange}></lightning-input>
+                                 onchange={handleBindingChange}></lightning-input>
             </div>
             <b> Your input text is- {inputText}</b><br/>
     </lightning-card>
+    </div>  
+    <div class="slds-col slds-size_4-of-12">
     <lightning-card title="Button" icon-name="custom:custom24">
         <lightning-input name="character"  label="Enter character" onchange={handleInputChange}> </lightning-input>
                 <b>Yout input text is {enteredChar}</b><br/>
             <p>  Uppercase characters are- {CharUpperCase}</p>
 
     </lightning-card>
+    </div>
+    <div class="slds-col slds-size_4-of-12" >
+    <lightning-card title="Conditional Rendering" icon-name="custom:custom26">
+        <div class="slds-m-top_large">
+            <lightning-input type="checkbox" label="Show details" onchange={handleChange}></lightning-input>
+        </div><br/>
+        <div class="slds-var-m-vertical_medium">
+            <template if:true={areDetailsVisible}>
+                These are the details!
+            </template>
+            <template if:false={areDetailsVisible}> Not showing details. </template>
+        </div>
+    </lightning-card>
+    </div>
+
+        </div>      
 </template>

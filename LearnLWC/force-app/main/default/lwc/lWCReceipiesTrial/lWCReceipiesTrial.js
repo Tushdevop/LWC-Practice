@@ -5,8 +5,9 @@ export default class LWCReceipiesTrial extends LightningElement {
 
     inputText='default';
     enteredChar='';
+    areDetailsVisible = false;
 
-    handleChange(event){
+    handleBindingChange(event){
         this.inputText=event.target.value;
     }
 
@@ -20,5 +21,8 @@ export default class LWCReceipiesTrial extends LightningElement {
     get CharUpperCase(){
             return this.enteredChar.toUpperCase();
             }
-            
+    
+    handleChange(event){
+        this.areDetailsVisible = event.target.checked;  
+    }
 }
