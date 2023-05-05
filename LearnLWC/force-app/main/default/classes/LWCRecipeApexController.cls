@@ -30,4 +30,16 @@ public with sharing class LWCRecipeApexController {
                  WITH SECURITY_ENFORCED
                  limit 1];
     }
+
+    //get account list
+    @AuraEnabled(cacheable=true)
+    public static List<Account> getAccountList(String searchString){
+        String key = '%' + searchString + '%';
+
+        return [SELECT Id, Name
+                FROM Account
+                WHERE Name LIKE :key
+                WITH SECURITY_ENFORCED
+                LIMIT 5];
+    }
 }

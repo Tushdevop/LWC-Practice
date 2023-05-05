@@ -1,7 +1,7 @@
 <template>
     <div class="slds-grid slds-wrap">
         <div class="slds-col slds-size_1-of-3">
-            <lightning-card title="ApexWireMethodToProperty" icon-name="custom:custom63">
+            <lightning-card title="ApexWireMethodToProperty" icon-name="custom:custom51">
                 <div class="slds-var-m-around_medium">
                     <template if:true={contacts.data}>
                         <template for:each={contacts.data} for:item="contact">
@@ -15,8 +15,10 @@
                 </div>
             </lightning-card>
         </div>
+        <!--Call an Apex method that retrieves a list of records using @wire. 
+            In this recipe, the Apex method is @wired to a component function.-->
         <div class="slds-col slds-size_1-of-3">
-            <lightning-card title="ApexWireToPropertyFunction" icon-name="custom:custom63">
+            <lightning-card title="ApexWireToPropertyFunction" icon-name="custom:custom11">
                 <div class="slds-var-m-around_medium">
                     <template if:true={conList}>
                         <template for:each={conList} for:item="contact">
@@ -30,8 +32,9 @@
                 </div>
             </lightning-card>
         </div>
+        <!--Call Apex method and get SObject values using a static schema definition.-->
         <div class="slds-col slds-size_1-of-3">
-            <lightning-card title="Apex Static Schema" icon-name="custom:custom63">
+            <lightning-card title="Apex Static Schema" icon-name="custom:custom21">
                     <template lwc:if={contact.data}>
                         <div class="slds-m-around_medium">
                             <p>{name}</p>
@@ -44,4 +47,41 @@
             </lightning-card>
         </div>
     </div>
+
+    <div class="slds-grid slds-wrap">
+        <!--Retrieve a list of records using an imperative Apex method call-->
+        <div class="slds-col slds-size_1-of-3">
+            <lightning-card title="Apex Imperative Method" icon-name="custom:custom14">
+                <div class="slds-m-top_medium">
+                    <lightning-button label="Load Contacts"  onclick={handleLoad} ></lightning-button>
+                </div>
+                <template if:true={Bcontacts}>
+                    <template for:each={Bcontacts} for:item="con">
+                        <p key={con.Id}>{con.Name}</p>
+                    </template>
+                </template>
+                <template if:true={Berror}>
+                    <c-error-panel errors={Berror}></c-error-panel>
+                </template>
+            </lightning-card>
+        </div>
+        <!--Call an Apex method with parameters using @wire-->
+        <div class="slds-col slds-size_1-of-3">
+            <lightning-card title="ApexWireMethodWithParams" icon-name="custom:custom25">
+                <div class="slds-m-around_medium">
+                    <lightning-input type="Search" label="Search" value="searchKey" onchange={handleChange}></lightning-input>
+                </div>
+                <template if:true={Accounts.data}>
+                    <template for:each={Accounts.data} for:item="Acc">
+                        <p key={Acc.id}>{Acc.Name}</p>
+                    </template>
+                </template>
+                <template if:false={Accounts.data}>
+                    <c-error-panel errors={Berror}></c-error-panel>
+                </template>
+            </lightning-card>
+        </div>
+        
+    </div>
+
 </template>
