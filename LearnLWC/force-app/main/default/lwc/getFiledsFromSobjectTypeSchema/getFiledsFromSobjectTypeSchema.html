@@ -1,11 +1,14 @@
 <template>
-    <lightning-card title="Get Single Contact By SObjectType">
-        <template if:true={contact.data}>
+    <lightning-card title="ApexStaticSchema" icon-name="custom:custom63">
+        <template lwc:if={contact.data}>
             <div class="slds-m-around_medium">
-                <p>{Name} </p>
-                <p>{title} </p>
+                <p>{name}</p>
+                <p>{title}</p>
                 <p><lightning-formatted-email value={email}></lightning-formatted-email></p>
             </div>
+        </template>
+        <template lwc:elseif={contact.error}>
+            <c-error-panel errors={contact.error}></c-error-panel>
         </template>
     </lightning-card>
 </template>

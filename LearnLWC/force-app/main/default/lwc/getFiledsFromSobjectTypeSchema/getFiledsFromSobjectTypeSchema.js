@@ -1,5 +1,5 @@
 import { LightningElement, wire } from 'lwc';
-import {GetSobjectType} from '@salesforce/apex';
+import { getSObjectValue } from '@salesforce/apex';
 import getSingleContact from '@salesforce/apex/AccountDataMethods.getSingleContact';
 
 import NAME_FIELD from '@salesforce/schema/Contact.Name';
@@ -8,10 +8,10 @@ import EMAIL_FIELD from '@salesforce/schema/Contact.Email';
 
 export default class GetFiledsFromSobjectTypeSchema extends LightningElement {
 
-    @wire(getSingleContact) contact
-    
-    get Name(){
-        return this.contact.data ? GetSobjectType(this.contact.data, NAME_FIELD):'';
+    @wire(getSingleContact) contact;
+
+    get name() {
+        return this.contact.data ? getSObjectValue(this.contact.data, NAME_FIELD) : '';
     }
     get title() {
         return this.contact.data ? getSObjectValue(this.contact.data, TITLE_FIELD) : '';
