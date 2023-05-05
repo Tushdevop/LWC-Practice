@@ -20,4 +20,14 @@ public with sharing class LWCRecipeApexController {
                 WITH SECURITY_ENFORCED 
                 LIMIT 5];
     }
+
+    //Get Single contact for Static schema
+    @AuraEnabled(cacheable=true)
+    public static Contact getSingleContact(){
+        return [ SELECT Id, Name, Email 
+                 FROM Contact
+                 WHERE Name!=null
+                 WITH SECURITY_ENFORCED
+                 limit 1];
+    }
 }
