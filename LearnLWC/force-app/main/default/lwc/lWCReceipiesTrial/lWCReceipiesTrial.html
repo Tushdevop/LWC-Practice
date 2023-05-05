@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Binding" icon-name="custom:custom25">
+         <div class="slds-p-around_medium lgc-bg">
+                <lightning-input type="text" label="Enter some text" 
+                                 value={inputText}
+                                 onchange={handleChange}></lightning-input>
+            </div>
+            <b> Your input text is- {inputText}</b><br/>
+    </lightning-card>
+    <lightning-card title="Button" icon-name="custom:custom24">
+        <lightning-input name="character"  label="Enter character" onchange={handleInputChange}> </lightning-input>
+                <b>Yout input text is {enteredChar}</b><br/>
+            <p>  Uppercase characters are- {CharUpperCase}</p>
+
+    </lightning-card>
+</template>
