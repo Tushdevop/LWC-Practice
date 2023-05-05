@@ -42,4 +42,16 @@ public with sharing class LWCRecipeApexController {
                 WITH SECURITY_ENFORCED
                 LIMIT 5];
     }
+
+    //get all opportunities
+    @AuraEnabled(cacheable=true)
+    public static List<Opportunity> getOpportunityList(String searchString){
+        String key = '%' + searchString + '%';
+
+        return [SELECT Id, Name
+                FROM Opportunity
+                WHERE Name LIKE :key
+                WITH SECURITY_ENFORCED
+                LIMIT 5];
+    }
 }

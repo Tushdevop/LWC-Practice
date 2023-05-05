@@ -5,6 +5,7 @@ import getContactList from '@salesforce/apex/LWCRecipeApexController.getContactL
 import getMultipleContacts from '@salesforce/apex/LWCRecipeApexController.getMultipleContacts';
 import getSingleContact from '@salesforce/apex/LWCRecipeApexController.getSingleContact';
 import getAccountList from '@salesforce/apex/LWCRecipeApexController.getAccountList';
+import getOpportunityList from '@salesforce/apex/LWCRecipeApexController.getOpportunityList';
 
 import NAME_FIELD from '@salesforce/schema/Contact.Name';
 import EMAIL_FIELD from '@salesforce/schema/Contact.Email';
@@ -59,7 +60,7 @@ handleLoad(){
     .catch((error) => {
         this.Berror = error;
         this.Bcontacts = undefined;
-    })
+    });
 }
 
 //Call an Apex method with parameters using @wire
@@ -71,6 +72,26 @@ handleChange(event){
     this.delayTimeout = setTimeout(() => {
         this.searchKey = searchKey;
     }, DELAY);
-}   
+}  
+
+//Call an Apex method with parameters imperatively.
+oppSearchKey = '';
+oppOpps;
+oppError;
+
+handleSearchInput(event) {
+    this.oppSearchKey = event.target.value;
+}
+handleSearch(){
+    getOpportunityList({ searchString : this.oppSearchKey})
+    .then((result) => {
+            this.oppOpps = result;
+            this.oppError = undefined;
+    })
+    .catch((error) => {
+            this.oppError = error;
+            this.oppOpps = undefined;
+    });
+}
 
 }

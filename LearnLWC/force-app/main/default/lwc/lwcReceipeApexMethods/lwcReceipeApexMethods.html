@@ -81,7 +81,29 @@
                 </template>
             </lightning-card>
         </div>
-        
+        <!--Call an Apex method with parameters imperatively.-->
+        <div class="slds-col slds-size_1-of-3">
+            <lightning-card title="ApexWireMethodWithParams" icon-name="custom:custom12">
+                <div class="slds-m-around_medium">
+                    <lightning-layout vertical-align="end" class="slds-var-m-bottom_small">
+                        <lightning-layout-item flexibility="grow">
+                            <lightning-input type="Search" label="Search" value="searchKey" onchange={handleSearchInput}></lightning-input>
+                        </lightning-layout-item>
+                        <lightning-layout-item class="slds-var-p-left_xx-small">
+                            <lightning-button label="Search" onclick={handleSearch}></lightning-button>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                    <template if:true={oppOpps}>
+                        <template for:each={oppOpps} for:item="Opp">
+                            <p key={Opp.id}>{Opp.Name}</p>
+                        </template>
+                    </template>
+                    <template if:true={oppError}>
+                        <c-error-panel errors={oppError}></c-error-panel>
+                    </template>
+                </div>
+            </lightning-card>
+        </div>
     </div>
 
 </template>
