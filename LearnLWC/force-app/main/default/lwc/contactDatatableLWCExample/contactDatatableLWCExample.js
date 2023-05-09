@@ -4,7 +4,6 @@ export default class ContactDatatableLWCExample extends LightningElement {
    
     @track error;
     @track ConList ;
-    
     @wire(getContactList)
     wiredContacts({
         error,

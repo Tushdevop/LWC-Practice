@@ -26,11 +26,9 @@
         <tbody>
             <template for:each={oppList} for:item="opp">
             <tr class="slds-hint-parent" key={opp.id}>
-                <th data-label="Opportunity Name" scope="row">
-                    <div class="slds-truncate" title="Opportunity Name">
-                        <div class="slds-truncate" title="Opportunity Name">{opp.Name}</div>
-                    </div>
-                  </th>
+                <td data-label="Opportunity Name"> 
+                    <div class="slds-truncate" title="Opportunity Name">{opp.Name}</div>
+                </td>
                 <td data-label="Account Id">
                     <div class="slds-truncate" title="Account Id">
                         <a href="#">{opp.Account.Id}</a></div>

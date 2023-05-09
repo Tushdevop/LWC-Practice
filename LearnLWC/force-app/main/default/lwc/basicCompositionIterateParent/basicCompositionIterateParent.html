@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Iterate Composition" icon-name="custom:custom23">
+        <div class="slds-var-m-around_medium">
+        <template for:each={contacts} for:item="con">
+            <c-basic-tile 
+                class="slds-show slds-is-relative"
+                key = {contacts.id}
+                contact = {con}>
+            </c-basic-tile>
+        </template>
+        </div>
+    </lightning-card>
+</template>

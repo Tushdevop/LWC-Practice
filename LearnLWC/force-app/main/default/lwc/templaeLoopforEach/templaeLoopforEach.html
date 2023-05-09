@@ -2,29 +2,14 @@
     <lightning-card title="Template Looping" icon-name="custom:custom14">
         <ul class="slds-m-around_medium">
             <li>
-                for:each example<br/>
             <template for:each={programmingList} for:item="prog">
                 <div key={prog.id}>   
                     {prog.language}
                 </div> 
             </template>
-            <hr/>
             <template for:each={carList} for:item="car" for:index="index">
                 <div key={car}>   
                     {car}
-                </div> 
-            </template>
-            <hr/>
-            Iterator example <br/>
-            <template iterator:prog={programmingList} >
-                <div key={prog.value.id}>   
-                    <h1 if:true={prog.first}>
-                    This is a Header- using iterator-first 
-                    </h1>
-                    {prog.value.language}
-                    <h1 if:true={prog.last}>
-                    This is a footer- using iterator-last 
-                    </h1>
                 </div> 
             </template>
         </li>
