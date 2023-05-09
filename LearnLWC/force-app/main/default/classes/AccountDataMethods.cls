@@ -7,6 +7,11 @@ public with sharing class AccountDataMethods {
     } 
 
     @AuraEnabled(cacheable=true)
+    public static List<account>  getAccountListforDel(){
+        return [SELECT Id, Name,Phone,Industry FROM Account order by createddate desc  WITH SECURITY_ENFORCED LIMIT 5 ];
+    }
+
+    @AuraEnabled(cacheable=true)
     public static List<Account> getAccountList(){
         return [SELECT Id, Name, AnnualRevenue FROM Account WHERE AnnualRevenue!=null LIMIT 5];
     }
