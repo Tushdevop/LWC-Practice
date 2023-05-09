@@ -1,0 +1,35 @@
+<template>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-3">
+            <lightning-card title="User Data" icon-name="custom:custom35">
+            <template if:true={user.data}>
+            <div class="slds-var-m-around_medium">
+                <p>Id: {userId}</p>
+                <p>Name: {name}</p>
+                <p><lightning-formatted-email value={email} ></lightning-formatted-email></p>
+            </div>
+            </template>
+            <template if:true={user.error}>
+                <c-error-panel errors={user.error}></c-error-panel>
+            </template>
+        </lightning-card>
+        </div>
+        <div class="slds-col slds-size_1-of-3">
+            <lightning-card title="Object Info Data" icon-name="custom:custom34">
+                <lightning-input value="Account" placeholder="Enter object API name" label="Search"></lightning-input>
+                <p class="slds-var-p-vertical_small">
+                    <lightning-button label="Get Object Info" onclick={handleBtnClick}></lightning-button>
+                </p>
+                <template lwc:if={objectInfo.data}>
+                    <div class="scroller">
+                        <pre>{objectInfoStr}</pre>
+                    </div>
+                </template>
+                <template lwc:elseif={objectInfo.error}>
+                    <c-error-panel errors={objectInfo.error}></c-error-panel>
+                </template>
+            </lightning-card>
+        </div>
+
+    </div>
+</template>
