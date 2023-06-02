@@ -1,0 +1,81 @@
+<template>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_4-of-12">
+            <span>
+            <lightning-card title="Sample wire" icon-name="custom:custom34">
+                <div class="slds-var-m-around_medium">
+                    <template lwc:if={Acclist.data}>
+                        <template for:each={Acclist.data} for:item="Acc">
+                        <div class="slds-box slds-box_small" key={Acc.id}>
+                            <p>{Acc.Name}</p>
+                            </div>
+                    </template>
+                </template>
+                <template lwc:elseif={Acclist.error}>
+                    <h1>{Acclist.error}</h1>
+                </template>
+             </div>
+        </lightning-card>
+        </span>
+    </div>
+    <div class="slds-col slds-size_4-of-12">
+        <span>
+            <lightning-card title="Wire mthod with Parameter" icon-name="custom:custom25">
+                <div class="slds-var-m-around_medium">
+                        <div class="slds-box">
+                        <lightning-combobox name="Typeselection" label="Acctype" value="accType" 
+                            options={options} onchange={handleChange}></lightning-combobox>
+                        </div>  
+                    <template lwc:if={selectedAccList.data}>
+                        <template for:each={selectedAccList.data} for:item="Acc">
+                            <div class="slds-box slds-box_small" key={Acc.id}>
+                                <p>{Acc.Name}</p>
+                            </div>
+                        </template>
+                    </template>
+                    <template lwc:elseif={selectedAccList.error}>
+                        <h1>{Acclist.error}</h1>
+                    </template>
+                </div>
+            </lightning-card>
+        </span>
+    </div>
+    <div class="slds-col slds-size_4-of-12">
+        <span>
+        <lightning-card title="Sample wire" icon-name="custom:custom34">
+             <lightning-button variant="brand-outline" label="Brand Outline" 
+                            title="Brand action" onclick={handleButtonChange}></lightning-button>
+            <template lwc:if={buttonAccList}>
+                <template for:each={buttonAccList} for:item="Acc">
+                    <div class="slds-box slds-box_small" key={Acc.id}>
+                        <p>{Acc.Name}</p>
+                    </div>
+                </template>
+            </template>
+            <template lwc:elseif={buttonErrors}>
+                <h1>{buttonErrors}</h1>
+            </template>
+        </lightning-card>
+        </span>
+    </div>
+   </div>
+
+   <div class="slds-grid slds-wrap">
+    <div class="slds-col slds-size_4-of-12">
+        <span>
+            <lightning-card title="Apex Imperative with Params" icon-name="custom:custom20">
+                <lightning-input type="search" onchange={searchHandler} 
+                    label="Search Accounts" value={searchKey}></lightning-input>
+
+               <template lwc:if={accounts}>
+                   <template for:each={accounts} for:item="Acc">
+                       <div class="slds-box slds-box_small" key={Acc.id}>
+                           <p>{Acc.Name}</p>
+                       </div>
+                   </template>
+               </template>
+           </lightning-card>
+        </span>
+    </div>
+    </div>
+</template>

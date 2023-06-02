@@ -1,0 +1,19 @@
+<template>
+   <lightning-card title="Data Binding" icon-name="standard:account">
+        <div class="slds-var-p-arund_medium">
+                <p><strong>Hello {word}</strong></p>
+                <div class="slds-m-around-small">
+                    <lightning-input name="Inputkey" label="Enter Text Here" 
+                                    value={inputvalue} onchange={handleChange}></lightning-input>
+                    <p>Here is yout input Text - {inputvalue}</p>
+                </div>
+                <div class="slds-var-m-top_medium">
+                        Data Using getter properties is {name}
+                </div>
+        </div>
+   </lightning-card>
+   
+    
+
+
+</template>
