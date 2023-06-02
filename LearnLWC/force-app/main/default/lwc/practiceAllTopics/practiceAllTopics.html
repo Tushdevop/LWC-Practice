@@ -1,5 +1,5 @@
 <template>
-   <lightning-card title="Data Binding" icon-name="standard:account">
+   <lightning-card title="1. Data Binding" icon-name="standard:account">
         <div class="slds-var-p-arund_medium">
                 <p><strong>Hello {word}</strong></p>
                 <div class="slds-m-around-small">
@@ -12,6 +12,33 @@
                 </div>
         </div>
    </lightning-card>
+   <lightning-card title="2. Render Data" icon-name="standard:account">
+        <div class="slds-var-p-arund_medium">
+            <lightning-button label="Show Data" onclick={handleButtonClick}></lightning-button>
+            <template if:true={showdata}>
+                <div class="slds-box  slds-box_xx-small">
+                    <template for:each={cars} for:item="car">
+                        <div key={car}>
+                            {car}
+                        </div>
+                    </template>
+                 </div>
+             </template>
+        </div>
+        <div class="slds-var-p-arund_medium">
+            <lightning-input type="checkbox" label="Check to see data" onchange={handleCheckboxChange}></lightning-input>
+            <template if:true={showdataIterator}>
+                <template iterator:it={cars}>
+                    <div key={it.value}>
+                        <div if:true={it.first}> FIRST</div>
+                            <p>{it.value}</p>
+                        <div if:true={it.last}> LAST</div>
+                    </div>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+
    
     
 

@@ -1,5 +1,5 @@
 <template>
-    <div id="myModal" class="modal">
+    <!--<div id="myModal" class="modal">
         <div class="modal-content">
             <header>
                 <strong>{headerText}</strong>
@@ -9,5 +9,14 @@
                 <button class="btn danger" onclick={closeHandler}>Close</button>
             </footer>
         </div>
-    </div>
+    </div> -->
+
+    <lightning-card  title="Child Component"  icon-name="custom:custom20" >
+        <div class="slds-var-m-around_medium">
+            <div class={textClassName}>
+                Passed value from Parent is - {childtoParent}
+            </div>
+        </div>
+    </lightning-card>
+
 </template> 

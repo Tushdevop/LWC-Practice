@@ -2,7 +2,24 @@ import { LightningElement } from 'lwc';
 
 export default class EventParentComponent extends LightningElement {
 
-    showModal=false;
+    parentTextSize = 'small';
+
+    get options() {
+        return [
+            { label: 'Small', value: 'small' },
+            { label: 'Medium', value: 'medium' },
+            { label: 'Large', value: 'large' },
+        ];
+    }
+    handleChange(event){
+        this.parentTextSize = event.detail.value;
+    }
+
+    handleClick(){
+        this.template.querySelector("c-event-child-component").handleValueChange();
+    }
+
+    /*showModal=false;
 
     showHandler(){
         this.showModal = true
@@ -10,5 +27,5 @@ export default class EventParentComponent extends LightningElement {
 
     modalCloseHandler(){
         this.showModal = false
-    }
+    } */
 }
