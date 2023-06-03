@@ -4,13 +4,14 @@ export default class EventChildComponent extends LightningElement {
 
     @api childtoParent;
     @api textSize;
+    childValue = 'default';
     
     get textClassName(){
        return `slds-text-heading_${this.textSize}`;
     }
 
     handleValueChange(){
-        this.childtoParent = 'Changed Value';
+        this.childValue = 'Changed Value';
     }
     
 
