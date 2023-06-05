@@ -1,3 +1,11 @@
 <template>
-    
+    <lightning-card title="Child to Parent Comm-event">
+        <div class="slds-var-p-around_medium"  onclose={parrentCloseHandler} >
+            <lightning-button label="Shw Modal" onclick={clickHandler}></lightning-button>
+            <p>{message}</p>
+            <template if:true={showModal}>
+                <c-data-communication-child-comp></c-data-communication-child-comp>
+            </template>
+        </div>
+    </lightning-card>
 </template>
